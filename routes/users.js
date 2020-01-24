@@ -6,18 +6,18 @@ router.get('/users', (req, res) => {
   res.send(users);
 });
 
-router.get('/users/:_id', (req, res) => {
+router.get('/users/:id', (req, res) => {
   const id = req.params;
 
-  let user = users.find(item => item._id === id._id);
+  const user = users.find((item) => item._id === id.id);
 
   if (!user) {
-    res.statusCode = 400;
+    res.statusCode = 404;
     res.send({ message: 'Нет пользователя с таким id' });
     return;
   }
 
-  res.send(users);
+  res.send(user);
 });
 
 module.exports = router;
