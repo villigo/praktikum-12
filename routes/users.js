@@ -9,6 +9,7 @@ router.get('/users', (req, res) => {
 router.get('/users/:id', (req, res) => {
   const id = req.params;
 
+  // eslint-disable-next-line no-underscore-dangle
   const user = users.find((item) => item._id === id.id);
 
   if (!user) {
